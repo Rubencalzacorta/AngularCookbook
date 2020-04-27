@@ -18,12 +18,24 @@ export class RecipeService {
                 new Ingredient("Meat", 1),
                 new Ingredient("Frech Fries", 10)
             ]
-              )
+              ),
+
+              new Recipe(
+                'Berger',
+                'The Burger is a an American Classic not world famous. recomended with french fries and a milkshake',
+                'https://purewows3.imgix.net/images/articles/2017_02/dallas_best_burgers_CAT1.png?auto=format,compress&cs=strip',
+                [
+                    new Ingredient("Meat", 1),
+                    new Ingredient("Bead", 1),
+                    new Ingredient("Meat", 1),
+                    new Ingredient("Frech Fries", 10)
+                ]
+                  )
             ];
     
     constructor(private shoppingListService: ShoppingListService){}
             
-            getRecipes(){
+     getRecipes(){
         return [...this.recipes]
     }
 
@@ -31,6 +43,10 @@ export class RecipeService {
 
         this.shoppingListService.addIngredients(ingredients)
 
+    }
+
+    getRecipe(id){
+        return this.recipes[id]
     }
 
 }
